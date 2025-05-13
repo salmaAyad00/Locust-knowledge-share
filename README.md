@@ -9,7 +9,7 @@ When developing software, it's essential to ensure not only that it works correc
 |------------------------|-------------------------|
 | Validates that the application behaves according to specifications. | Evaluates how the application behaves under stress, load, and scalability conditions. |
 | Focuses on **what** the system does. | Focuses on **how** the system performs. |
-| Usually involves unit, integration, system, and acceptance tests. | Includes load, stress, spike, and endurance tests. |
+| Usually involves unit, integration, system, and acceptance tests. | Includes load, stress, spike, and scalabilty tests. |
 | Example: Does the login function work correctly? | Example: Can 10,000 users log in simultaneously without degradation? |
 
 
