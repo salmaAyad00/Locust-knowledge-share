@@ -1,11 +1,5 @@
 # Locust-knowledge-share
-# Locust Demo: Load Testing with Multiple User Classes
 
-This project demonstrates how to create a simple load testing suite using [Locust](https://locust.io/). It includes three user classes that simulate different behaviors using various `wait_time` strategies and task sets.
-
-## Files
-
-- `init.py`: Contains the test classes and tasks used for simulating users.
 
 ## User Classes
 
