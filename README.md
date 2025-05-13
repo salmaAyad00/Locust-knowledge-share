@@ -34,6 +34,17 @@ Nested task sets are useful when you need to simulate a flow that depends on per
 
 ### Built-in Methods:
 - **tasks**: In a parent TaskSet, the `tasks` attribute can be set to reference another TaskSet class or a list of tasks. This provides the ability to nest task sets.
+- 
+- 🔍 **interrupt**: Used inside a nested TaskSet to stop its execution and return control to the parent TaskSet.
+📌 ***Parameters***
+* reschedule: bool -> Default: True
+Purpose: It tells Locust what to do after interrupting the nested TaskSet.
+
+| Value | Behavior                                                                 |
+|--------------------|--------------------------------------------------------------------------|
+| `True`             | Locust will schedule another task from the parent `TaskSet`.             |
+| `False`            | Locust will return to the parent `TaskSet` but **will not** schedule another task immediately. Useful if you want to stop executing further tasks. |
+
 
 ### Use Case:
 - **Authentication Flows**: For example, you could create an authentication TaskSet and nest it within a UserActions task set, ensuring that each user first logs in before proceeding to other actions.
