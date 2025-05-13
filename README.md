@@ -36,8 +36,7 @@ Nested task sets are useful when you need to simulate a flow that depends on per
 - **tasks**: In a parent TaskSet, the `tasks` attribute can be set to reference another TaskSet class or a list of tasks. This provides the ability to nest task sets.
 
 - 🔍 **interrupt**: Used inside a nested TaskSet to stop its execution and return control to the parent TaskSet.
-📌 ***Parameters***
-* reschedule: bool -> Default: True
+📌 ***Parameters***: `reschedule | bool : True`
 Purpose: It tells Locust what to do after interrupting the nested TaskSet.
 
 | Value | Behavior                                                                 |
