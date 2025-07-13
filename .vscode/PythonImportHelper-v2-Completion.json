@@ -1,0 +1,89 @@
+[
+    {
+        "label": "HttpUser",
+        "importPath": "locust",
+        "description": "locust",
+        "isExtraImport": true,
+        "detail": "locust",
+        "documentation": {}
+    },
+    {
+        "label": "task",
+        "importPath": "locust",
+        "description": "locust",
+        "isExtraImport": true,
+        "detail": "locust",
+        "documentation": {}
+    },
+    {
+        "label": "ORDER_DATA",
+        "importPath": "order_data",
+        "description": "order_data",
+        "isExtraImport": true,
+        "detail": "order_data",
+        "documentation": {}
+    },
+    {
+        "label": "threading",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "threading",
+        "description": "threading",
+        "detail": "threading",
+        "documentation": {}
+    },
+    {
+        "label": "subprocess",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "subprocess",
+        "description": "subprocess",
+        "detail": "subprocess",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "OrderUser",
+        "kind": 6,
+        "importPath": "create-order",
+        "description": "create-order",
+        "peekOfCode": "class OrderUser(HttpUser):\n    url=\"http://127.0.0.1:8000/base/sync-shopify-orders/\"\n    @task\n    def send_simultaneous_requests(self):\n        \"\"\"Send two requests simultaneously using threading.\"\"\"\n        def send_request():\n            self.client.post(self.url, json=ORDER_DATA)\n        # Create two threads to send requests at the same time\n        thread1 = threading.Thread(target=send_request)\n        thread2 = threading.Thread(target=send_request)",
+        "detail": "create-order",
+        "documentation": {}
+    },
+    {
+        "label": "ORDER_DATA",
+        "kind": 5,
+        "importPath": "order_data",
+        "description": "order_data",
+        "peekOfCode": "ORDER_DATA = {\n    \"request_data\": {\n        \"order\": {\n            \"id\": 6525950329008,\n            \"admin_graphql_api_id\": \"gid://shopify/Order/6525950329008\",\n            \"app_id\": 1354745,\n            \"browser_ip\": \"197.39.114.25\",\n            \"buyer_accepts_marketing\": False,\n            \"cancel_reason\": None,\n            \"cancelled_at\": None,",
+        "detail": "order_data",
+        "documentation": {}
+    },
+    {
+        "label": "run_locust",
+        "kind": 2,
+        "importPath": "run_test",
+        "description": "run_test",
+        "peekOfCode": "def run_locust():\n    \"\"\"Run the Locust test.\"\"\"\n    # Change to the script directory\n    script_dir = os.path.dirname(os.path.abspath(__file__))\n    os.chdir(script_dir)\n    # Activate virtual environment and run locust\n    venv_python = os.path.join(script_dir, 'env', 'bin', 'python')\n    if os.path.exists(venv_python):\n        cmd = [venv_python, '-m', 'locust', '-f', 'create-order.py', '--host=http://127.0.0.1:8000', '--run-time=3s']\n    else:",
+        "detail": "run_test",
+        "documentation": {}
+    }
+]
